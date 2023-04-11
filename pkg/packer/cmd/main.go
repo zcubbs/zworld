@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"github.com/unitoftime/packer"
+	"github.com/zcubbs/zworld/pkg/packer"
 	"image"
 	"image/png"
 	"io/ioutil"

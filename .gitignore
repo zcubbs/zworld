@@ -100,3 +100,8 @@ fabric.properties
 # Go workspace file
 go.work
 
+/.idea/.gitignore
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
+/zmmo.iml
