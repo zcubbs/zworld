@@ -6,6 +6,7 @@ import (
 	"github.com/faiface/pixel/pixelgl"
 	"github.com/zcubbs/zworld"
 	"github.com/zcubbs/zworld/engine/asset"
+	"github.com/zcubbs/zworld/engine/ecs"
 	"github.com/zcubbs/zworld/engine/render"
 	"github.com/zcubbs/zworld/engine/tilemap"
 	"log"
@@ -58,6 +59,8 @@ func runGame() {
 	check(err)
 
 	win.SetSmooth(false)
+
+	engine := ecs.NewEngine()
 
 	load := asset.NewLoad(os.DirFS("./cmd/client"))
 	spriteSheet, err := load.SpriteSheet("packed.json")
@@ -142,6 +145,14 @@ func runGame() {
 
 type KeyBinds struct {
 	Up, Down, Left, Right pixelgl.Button
+}
+
+func (t *KeyBinds) ComponentsSet(val interface{}) {
+	*t = val.(KeyBinds)
+}
+
+type Sprite struct {
+	*pixel.Sprite
 }
 
 type Person struct {
